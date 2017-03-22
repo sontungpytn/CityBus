@@ -19,6 +19,7 @@ namespace CityBus.Com.DAO
                         " AND r.ToCityID = @to" +
                         " AND bd.DepartureDate = @date";
             SqlConnection conn = DAO.Connection;
+            conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@from", fromCity);
             cmd.Parameters.AddWithValue("@to", toCity);
@@ -26,6 +27,7 @@ namespace CityBus.Com.DAO
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable busTBL = new DataTable();
             busTBL.Load(dr);
+            conn.Close();
             return busTBL;
         }
     }

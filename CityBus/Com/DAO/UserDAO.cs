@@ -30,7 +30,7 @@ namespace CityBus.Com.DAO
             cmd.Parameters.AddWithValue("@email", u.Email);
             cmd.Parameters.AddWithValue("@password", u.Password);
             cmd.Parameters.AddWithValue("@name", u.Name);
-            cmd.Parameters.AddWithValue("@role", u.Role);
+            cmd.Parameters.AddWithValue("@role", u.Role ? 1 : 0);
             return DAO.ExecuteCommand(cmd);
         }
         /// <summary>
@@ -48,6 +48,51 @@ namespace CityBus.Com.DAO
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@email", email);
             return DAO.ExecuteCommand(cmd);
+        }
+        /// <summary>
+        /// Search user for login
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static UserInfo SearchUser(string email, string password)
+        {
+            UserInfo user = null;
+            SqlConnection conn = DAO.Connection;
+            conn.Open();
+            string sql = "SELECT * FROM Users WHERE Email=@email AND Password=@password";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@password", password);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                user = new UserInfo();
+                user.Email = reader[0].ToString();
+                user.Name = reader[2].ToString();
+                //user.Role = (int)reader[3];
+                //Console.Write(reader);
+                user.Role = (bool)reader[3];
+            }
+            conn.Close();
+            return user;
+        }
+
+        public static bool DulicateEmail(string email)
+        {
+            SqlConnection conn = DAO.Connection;
+            conn.Open();
+            string sql = "SELECT * FROM Users WHERE Email = @email ";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                conn.Close();
+                return true;
+            }
+            conn.Close();
+            return false;
         }
 
     }
