@@ -9,6 +9,7 @@
     <link href="../Theme/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../Theme/css/admin-style.css" rel="stylesheet" />
     <link href="../Theme/fonts/font-lato" rel="stylesheet" />
+    <link href="../Theme/css/ConfirmMessage.css" rel="stylesheet" />
 </head>
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
@@ -102,7 +103,7 @@
                         </a>
                     </li>--%>
                     <li id="liNavUser" runat="server">
-                        <a href="Home.aspx" runat="server">
+                        <a href="AdminUser.aspx" runat="server">
                             <i class="fa fa-user-circle-o"></i><span>User</span>
                         </a>
                     </li>

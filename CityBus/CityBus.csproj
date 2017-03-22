@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -98,6 +102,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AdminBooking.aspx" />
+    <Content Include="Admin\AdminBus.aspx" />
+    <Content Include="Admin\AdminCity.aspx" />
+    <Content Include="Admin\AdminUser.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -107,6 +115,7 @@
     </Content>
     <Content Include="Register.aspx" />
     <Content Include="Theme\css\bootstrap.min.css" />
+    <Content Include="Theme\css\ConfirmMessage.css" />
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\css\login.css" />
     <Content Include="Theme\css\register.css" />
@@ -116,6 +125,7 @@
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Theme\js\citybus.js" />
     <Content Include="User.Master" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,6 +140,41 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminBooking.aspx.cs">
+      <DependentUpon>AdminBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminBooking.aspx.designer.cs">
+      <DependentUpon>AdminBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminBus.aspx.cs">
+      <DependentUpon>AdminBus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminBus.aspx.designer.cs">
+      <DependentUpon>AdminBus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminCity.aspx.cs">
+      <DependentUpon>AdminCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminCity.aspx.designer.cs">
+      <DependentUpon>AdminCity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUser.aspx.cs">
+      <DependentUpon>AdminUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUser.aspx.designer.cs">
+      <DependentUpon>AdminUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Com\DAO\BookingDAO.cs" />
     <Compile Include="Com\DAO\BusDAO.cs" />
     <Compile Include="Com\DAO\CityDAO.cs" />
