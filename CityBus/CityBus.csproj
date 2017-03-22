@@ -111,7 +111,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\User.aspx" />
+    <Content Include="Admin\AdminBooking.aspx" />
+    <Content Include="Admin\AdminBus.aspx" />
+    <Content Include="Admin\AdminCity.aspx" />
+    <Content Include="Admin\Home.aspx" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -158,12 +161,33 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\User.aspx.cs">
-      <DependentUpon>User.aspx</DependentUpon>
+    <Compile Include="Admin\AdminBooking.aspx.cs">
+      <DependentUpon>AdminBooking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\User.aspx.designer.cs">
-      <DependentUpon>User.aspx</DependentUpon>
+    <Compile Include="Admin\AdminBooking.aspx.designer.cs">
+      <DependentUpon>AdminBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminBus.aspx.cs">
+      <DependentUpon>AdminBus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminBus.aspx.designer.cs">
+      <DependentUpon>AdminBus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminCity.aspx.cs">
+      <DependentUpon>AdminCity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminCity.aspx.designer.cs">
+      <DependentUpon>AdminCity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Com\DAO\BookingDAO.cs" />
     <Compile Include="Com\DAO\BusDAO.cs" />

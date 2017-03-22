@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CityBus.Admin
+namespace CityBus.Com.DAO
 {
 
 
-    public partial class User
+    public partial class AdminAddUser
     {
     }
 }
