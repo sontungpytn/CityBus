@@ -8,7 +8,7 @@ namespace CityBus.Com.DAO
 {
     public class CityDAO
     {
-        public DataTable GetDataCity()
+        public static DataTable GetDataCity()
         {
             return DAO.GetDataTable("SELECT * FROM Cities");
         }

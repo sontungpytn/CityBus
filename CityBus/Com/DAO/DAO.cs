@@ -11,7 +11,7 @@ namespace CityBus.Com.DAO
     public class DAO
     {
         public static string ConnectionString = WebConfigurationManager.
-            ConnectionStrings["CNETConnectionString"].ConnectionString;
+            ConnectionStrings["CityBusConnectionString"].ConnectionString;
         static SqlConnection conn;
         static SqlDataAdapter da;
         public static SqlConnection Connection

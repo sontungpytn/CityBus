@@ -1,0 +1,47 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+.body {
+    font-family: 'Exo', sans-serif;
+    margin-top: 100px;
+}
+
+.header {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    min-height: 100%;
+    align-items: center;
+}
+
+.header div {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: 100px;
+}
+
+.header div span {
+    color: blue;
+}
+
+.form {
+    background-color: aquamarine;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.form input {
+    height: 45px;
+}
+.form input[type=text],  .form input[type=password]{
+    font-size:15px;
+}
+
+
+.form-inside {
+    padding: 30px;
+}
+
+.form h3 a {
+    color: orange;
+}

@@ -76,6 +76,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -94,14 +98,24 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Index.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Register.aspx" />
+    <Content Include="Theme\css\bootstrap.min.css" />
+    <Content Include="Theme\css\index.css" />
+    <Content Include="Theme\css\login.css" />
+    <Content Include="Theme\css\register.css" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Theme\js\citybus.js" />
+    <Content Include="User.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,8 +124,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Register.aspx" />
-    <Content Include="Theme\css\bootstrap.min.css" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Theme\js\bootstrap.min.js" />
     <Content Include="Theme\js\jquery-3.2.0.min.js" />
@@ -132,6 +144,27 @@
     <Compile Include="Com\Entities\Passenger.cs" />
     <Compile Include="Com\Entities\Route.cs" />
     <Compile Include="Com\Entities\UserInfo.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -139,6 +172,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.Master.cs">
+      <DependentUpon>User.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.Master.designer.cs">
+      <DependentUpon>User.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
@@ -157,7 +197,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50293</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50293/</IISUrl>
+          <IISUrl>http://localhost:6969/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:6969/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
