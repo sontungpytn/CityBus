@@ -54,7 +54,8 @@ namespace CityBus
                     p.NationalID = posted["txtNational" + i];
                     passengers.Add(p);
                 }
-
+                Booking b = new Booking();
+                b.Amount = 
 
             }
         }
