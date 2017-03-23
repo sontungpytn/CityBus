@@ -63,7 +63,7 @@
                     <li><a href="#">About</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><%UserInfo user = (UserInfo)Session["user"];%><%=user.Name %></a></li>
+                    <li><a href="Profile.aspx"><%UserInfo user = (UserInfo)Session["user"];%><%=user.Name %></a></li>
                     <li><a href="Logout.aspx">Log out</a></li>
                 </ul>
             </div>

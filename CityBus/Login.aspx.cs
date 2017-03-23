@@ -41,7 +41,16 @@ namespace CityBus
                 }
                 else
                 {
-                    Response.Redirect("Index.aspx");
+                    if (Session["redirectUrl"] != null)
+                    {
+                        string url = (string)Session["redirectUrl"];
+                        Session.Remove("redirectUrl");
+                        Response.Redirect(url);
+                    }else
+                    {
+                        Response.Redirect("Index.aspx");
+                    }
+                    
                 }
             }
             else
