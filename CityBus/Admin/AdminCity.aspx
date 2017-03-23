@@ -76,46 +76,6 @@
                     <asp:Label ID="lblresult" runat="server"></asp:Label>
                 </div>
             </div>
-            <%--ROUTE TABLE--%>
-            <div class="panel panel-primary">
-                <header class="panel-heading">
-                    ROUTE
-                </header>
-                <div class="panel-body">
-                    <div class="form-inline">
-                        <div class="form-group col-md-4 col-md-offset-8 ">
-                            <asp:TextBox ID="TextBox1" placeholder="City Name" onfocus="if(this.value===this.defaultValue)this.value='';"
-                                CssClass="form-control" runat="server"></asp:TextBox>
-                            <asp:LinkButton CssClass="btn btn-sm btn-info" ID="LinkButton3" OnClick="SearchCity"
-                                runat="server">
-                                            <span class="glyphicon glyphicon-search"></span> Search
-                            </asp:LinkButton>
-                            <asp:LinkButton CssClass="btn btn-sm btn-info" ID="LinkButton4" OnClick="ShowAll"
-                                runat="server">
-                                            <span class="glyphicon glyphicon-list-alt"></span> Show all
-                            </asp:LinkButton>
-                        </div>
-                    </div>
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false">
-                        <Columns>
-                            <asp:BoundField DataField="RouteID" ReadOnly="true" HeaderText="RouteID" />
-                            <asp:BoundField DataField="Route" HeaderText="Route" />
-                            <asp:BoundField DataField="Duration" HeaderText="Duration" />
-                            <asp:CommandField ControlStyle-CssClass="btn btn-sm btn-warning glyphicon glyphicon-edit" ShowEditButton="true" />
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:LinkButton CssClass="btn btn-sm btn-danger" ID="btnDelete" OnClientClick="return confirm('Are you sure to delete?')"
-                                        CommandArgument='<%# Eval("RouteID") %>'
-                                        CommandName="Delete" runat="server" Text="">
-                                         <span class="glyphicon glyphicon-remove"></span> Delete
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                        <PagerStyle CssClass="pagination-sm" />
-                    </asp:GridView>
-                </div>
-            </div>
         </div>
     </form>
 </asp:Content>

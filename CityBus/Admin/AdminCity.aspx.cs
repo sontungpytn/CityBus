@@ -19,10 +19,10 @@ namespace CityBus.Admin
             liCity.Attributes.Add("class", "active");
             if (!IsPostBack)
             {
-                ShowData();
+                ShowDataCity();
             }
         }
-        protected void ShowData()
+        protected void ShowDataCity()
         {
             DataTable dt = CityDAO.GetDataCity();
             if (dt.Rows.Count > 0)
@@ -67,13 +67,13 @@ namespace CityBus.Admin
         {
             string cityID = GridView1.DataKeys[e.RowIndex].Value.ToString();
             CityDAO.DeleteCity(cityID);
-            ShowData();
+            ShowDataCity();
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
-            ShowData();
+            ShowDataCity();
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -89,19 +89,19 @@ namespace CityBus.Admin
             c.CityName = cityName.Text;
             c.NationalID = nationalID.Text;
             CityDAO.UpdateCity(c);
-            ShowData();
+            ShowDataCity();
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1;
-            ShowData();
+            ShowDataCity();
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            ShowData();
+            ShowDataCity();
         }
         /// <summary>
         /// Search city
@@ -148,6 +148,16 @@ namespace CityBus.Admin
                 phError.Controls.Add(new LiteralControl("</div>"));
                 return;
             }
+            else if (string.IsNullOrEmpty(cityID) || string.IsNullOrEmpty(cityName)
+                || string.IsNullOrEmpty(nationalID))
+            {
+                phError.Controls.Add(new LiteralControl("<div class='alert alert-danger'>"));
+                Label error = new Label();
+                error.Text = "All data must not be empty!";
+                phError.Controls.Add(error);
+                phError.Controls.Add(new LiteralControl("</div>"));
+                return;
+            }
             else
             {
                 City c = new City();
@@ -157,7 +167,7 @@ namespace CityBus.Admin
                 if (CityDAO.AddCity(c))
                 {
                     Session["addOK"] = "New CITY has been added!";
-                    Response.Redirect("AdminUser.aspx");
+                    Response.Redirect("AdminCity.aspx");
                 }
             }
 

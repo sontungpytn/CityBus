@@ -118,7 +118,11 @@
                             <i class="fa fa-building-o"></i><span>City</span>
                         </a>
                     </li>
-
+                    <li id="liNavRoute" runat="server">
+                        <a href="AdminRoute.aspx" runat="server">
+                            <i class="fa fa-road"></i><span>Route</span>
+                        </a>
+                    </li>
                     <li id="liNavBus" runat="server">
                         <a href="AdminBus.aspx">
                             <i class="fa fa-car"></i><span>Bus</span>

@@ -53,5 +53,16 @@ namespace CityBus.Com.DAO
                 return false;
             }
         }
+        public static string RandomID()
+        {
+            string result = "";
+            string CHARACTER = "1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
+            Random r = new Random();
+            for (int i = 0; i < 6; i++)
+            {
+                result += CHARACTER[r.Next(CHARACTER.Length)];
+            }
+            return result;
+        }
     }
 }

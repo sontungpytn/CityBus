@@ -14,7 +14,12 @@ namespace CityBus.Com.DAO
         /// <returns></returns>
         public static DataTable GetDataRoute()
         {
-            return DAO.GetDataTable("SELECT * FROM Route");
+            string sql = "SELECT RouteID, " +
+                          " ((SELECT CityName FROM CITIES WHERE CityID = FromCityID) + ' - '" +
+                          " + (SELECT CityName FROM CITIES WHERE CityID = ToCityID)) as Route, Duration" +
+                          " FROM ROUTES ";
+            return DAO.GetDataTable(sql);
         }
+
     }
 }

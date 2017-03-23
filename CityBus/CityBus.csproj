@@ -101,7 +101,8 @@
     <Content Include="Admin\AdminBooking.aspx" />
     <Content Include="Admin\AdminBus.aspx" />
     <Content Include="Admin\AdminCity.aspx" />
-    <Content Include="Admin\Home.aspx" />
+    <Content Include="Admin\AdminRoute.aspx" />
+    <Content Include="Admin\AdminUser.aspx" />
     <Content Include="BookingPage.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
@@ -110,7 +111,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Theme\css\admin-style.css" />
     <Content Include="Theme\css\bootstrap.min.css" />
@@ -179,12 +179,19 @@
     <Compile Include="Admin\AdminCity.aspx.designer.cs">
       <DependentUpon>AdminCity.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Admin\AdminRoute.aspx.cs">
+      <DependentUpon>AdminRoute.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Admin\AdminRoute.aspx.designer.cs">
+      <DependentUpon>AdminRoute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUser.aspx.cs">
+      <DependentUpon>AdminUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminUser.aspx.designer.cs">
+      <DependentUpon>AdminUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookingPage.aspx.cs">
       <DependentUpon>BookingPage.aspx</DependentUpon>
@@ -228,13 +235,6 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Profile.aspx.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Profile.aspx.designer.cs">
-      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
