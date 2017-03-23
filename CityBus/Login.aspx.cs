@@ -13,7 +13,12 @@ namespace CityBus
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["needLoginMsg"] != null)
+            {
+                string msg = Session["needLoginMsg"].ToString();
+                Session.Remove("needLoginMsg");
+                lbMessage.Text = msg;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -24,13 +29,17 @@ namespace CityBus
 
             UserInfo user = UserDAO.SearchUser(email, password);
 
+            
+
             if (user != null)
             {
                 lbMessage.Text = "Login successfully";
                 Session.Add("user", user);
                 if (Session["redirectUrl"] != null)
                 {
-                    Response.Redirect((string)Session["redirectUrl"]);
+                    string url = Session["redirectUrl"].ToString();
+                    Session.Remove("redirectUrl");
+                    Response.Redirect(url);
                 }
                 else
                 {
