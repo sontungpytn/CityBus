@@ -14,7 +14,7 @@ namespace CityBus.Com.Entities
         public string ToCity { get; set; }
         public double Amount { get; set; }
         public DateTime DepartureDate { get; set; }
-        public int DepartureTime { get; set; }
+        public string DepartureTime { get; set; }
         public int BookingState { get; set; }
     }
 }

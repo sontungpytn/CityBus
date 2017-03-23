@@ -65,7 +65,7 @@ namespace CityBus
                 b.ArrivalDate = DateTime.Now;
                 b.Amount = sr.passNum * sr.Fare;
 
-                
+                BookingDAO.AddBooking(b, passengers);
             }
         }
 

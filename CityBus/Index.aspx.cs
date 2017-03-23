@@ -141,7 +141,7 @@ namespace CityBus
                 sr.ArrivalTime = rowSelect.Cells[2].Text;
                 sr.AvailableSeat = int.Parse(rowSelect.Cells[3].Text);
                 sr.Fare = double.Parse(rowSelect.Cells[4].Text);
-                sr.DetailID = rowSelect.Cells[6].Text;
+                sr.DetailID = e.CommandArgument.ToString();
                 sr.FromCity = cboFromCity.SelectedItem.ToString();
                 sr.ToCity = cboToCity.SelectedItem.ToString();
                 sr.passNum = int.Parse(txtPassengerNumber.Text);
