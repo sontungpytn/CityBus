@@ -16,7 +16,7 @@ namespace CityBus.Com.DAO
         /// <param name="userEmail">like ID of User</param>
         /// <param name="b">a booking model</param>
         /// <returns></returns>
-        public static void AddBooking(string userEmail, Booking b, List<Passenger> passengers)
+        public static void AddBooking( Booking b, List<Passenger> passengers)
         {
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -25,6 +25,17 @@ namespace CityBus.Com.DAO
             cmd.Transaction = transaction;
             try
             {
+                //Update available seats
+                cmd.CommandText = "UPDATE BUSDETAIL SET AvailableSeat = (AvailableSeat - @num) WHERE BusDetailID = @id";
+                cmd.Parameters.AddWithValue("@num", passengers.Count);
+                cmd.Parameters.AddWithValue("@id", b.BusDetailID);
+                cmd.ExecuteNonQuery();
+
+                do
+                {
+                    
+                } while (true);
+
                 //insert booking
                 cmd.CommandText = "INSERT INTO Booking VALUES(@id,@userEmail,@state,@date,@busDetailID,@departureDate,@arrivalDate,@amount)";
                 cmd.Parameters.AddWithValue("@id", b.BookingID);

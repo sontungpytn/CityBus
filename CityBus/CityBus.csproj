@@ -114,6 +114,7 @@
     <Content Include="Register.aspx" />
     <Content Include="Theme\css\admin-style.css" />
     <Content Include="Theme\css\bootstrap.min.css" />
+    <Content Include="Theme\css\ConfirmMessage.css" />
     <Content Include="Theme\css\font-awesome.css" />
     <Content Include="Theme\css\font-awesome.min.css" />
     <Content Include="Theme\css\index.css" />
