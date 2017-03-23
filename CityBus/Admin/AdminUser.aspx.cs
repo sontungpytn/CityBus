@@ -87,9 +87,22 @@ namespace CityBus.Admin
         }
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            UserInfo u = (UserInfo)Session["user"];
             string email = GridView1.DataKeys[e.RowIndex].Value.ToString();
-            UserDAO.DeleteUser(email);
-            ShowData();
+            if (u.Email.Equals(email))
+            {
+                phError.Controls.Add(new LiteralControl("<div class='alert alert-danger'>"));
+                Label error = new Label();
+                error.Text = "Cannot delete admin!";
+                phError.Controls.Add(error);
+                phError.Controls.Add(new LiteralControl("</div>"));
+                return;
+            }
+            else
+            {
+                UserDAO.DeleteUser(email);
+                ShowData();
+            }
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

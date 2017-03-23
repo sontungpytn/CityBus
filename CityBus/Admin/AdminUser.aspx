@@ -1,6 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminUser.aspx.cs" Inherits="CityBus.Admin.AdminUser" %>
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form id="form1" runat="server">
@@ -28,7 +26,7 @@
                                 <asp:BoundField DataField="Email" ReadOnly="true" HeaderText="Email" />
                                 <asp:BoundField DataField="password" HeaderText="Password" />
                                 <asp:BoundField DataField="name" HeaderText="Fullname" />
-                                <asp:BoundField DataField="role" ReadOnly="true" HeaderText="Is Admin" />
+                                <asp:CheckBoxField DataField="role" ReadOnly="true" HeaderText="Is Admin" />
                                 <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm btn-warning glyphicon glyphicon-edit" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
