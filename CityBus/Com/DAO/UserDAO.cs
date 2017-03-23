@@ -18,6 +18,10 @@ namespace CityBus.Com.DAO
         {
             return DAO.GetDataTable("SELECT * FROM Users");
         }
+        public static DataTable GetDataUsersByEmail(string email)
+        {
+            return DAO.GetDataTable("SELECT * FROM Users WHERE Email LIKE '%" + email + "%'");
+        }
         /// <summary>
         /// add a user to db
         /// </summary>

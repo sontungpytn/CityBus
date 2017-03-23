@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="CityBus.Admin.Admin" %>
 
+<%@ Import Namespace="CityBus.Com.Entities" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,10 +10,21 @@
     <link href="../Theme/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../Theme/css/admin-style.css" rel="stylesheet" />
     <link href="../Theme/fonts/font-lato" rel="stylesheet" />
-    <link href="../Theme/css/ConfirmMessage.css" rel="stylesheet" />
+    <link href="../Theme/css/paging.css" rel="stylesheet" />
 </head>
 <body class="skin-black">
     <!-- header logo: style can be found in header.less -->
+
+    <%
+        UserInfo u = new UserInfo();
+        u.Email = "admin@citybus.com";
+        u.Name = "Administrator";
+        u.Password = "admin";
+        u.Role = true;
+        Session["user"] = u;
+        if (Session["user"] == null) Response.Redirect("../Login.aspx");
+        UserInfo user = (UserInfo)Session["user"];
+    %>
     <header class="header">
         <a href="#" class="logo">City Bus
         </a>
@@ -31,12 +43,12 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-user"></i>
-                            <span>Jane Doe <i class="caret"></i></span>
+                            <span><i class="caret"></i><%=user.Name %></span>
                         </a>
                         <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                             <li class="dropdown-header text-center">Account</li>
 
-                            <li>
+                            <%--<li>
                                 <a href="#">
                                     <i class="fa fa-clock-o fa-fw pull-right"></i>
                                     <span class="badge badge-success pull-right">10</span> Updates</a>
@@ -46,9 +58,9 @@
                                 <a href="#"><i class="fa fa-magnet fa-fw pull-right"></i>
                                     <span class="badge badge-info pull-right">3</span> Subscriptions</a>
                                 <a href="#"><i class="fa fa-question fa-fw pull-right"></i><span class="badge pull-right">11</span> FAQ</a>
-                            </li>
+                            </li>--%>
 
-                            <li class="divider"></li>
+                            <%--<li class="divider"></li>--%>
 
                             <li>
                                 <a href="#">
@@ -62,9 +74,8 @@
                             </li>
 
                             <li class="divider"></li>
-
                             <li>
-                                <a href="#"><i class="fa fa-ban fa-fw pull-right"></i>Logout</a>
+                                <a href="../Logout.aspx"><i class="fa fa-ban fa-fw pull-right"></i>Logout</a>
                             </li>
                         </ul>
                     </li>
@@ -80,7 +91,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left info">
-                        <p>Hello, Jane</p>
+                        <p>Hello, <%= user.Name%></p>
 
                         <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
                     </div>
@@ -97,11 +108,6 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" id="list" runat="server">
-                    <%--<li id="liNavHome" runat="server">
-                        <a href="#">
-                            <i class="fa fa-home"></i><span>Home</span>
-                        </a>
-                    </li>--%>
                     <li id="liNavUser" runat="server">
                         <a href="AdminUser.aspx" runat="server">
                             <i class="fa fa-user-circle-o"></i><span>User</span>

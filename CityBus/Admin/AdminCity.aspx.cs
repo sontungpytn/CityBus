@@ -42,6 +42,26 @@ namespace CityBus.Admin
                 GridView1.Rows[0].Cells[0].Text = "No Records Found";
             }
         }
+        protected void ShowAll(object sender, EventArgs e)
+        {
+            DataTable dt = CityDAO.GetDataCity();
+            if (dt.Rows.Count > 0)
+            {
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            else
+            {
+                dt.Rows.Add(dt.NewRow());
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+                int columncount = GridView1.Rows[0].Cells.Count;
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
+                GridView1.Rows[0].Cells[0].Text = "No Records Found";
+            }
+        }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -83,17 +103,64 @@ namespace CityBus.Admin
             GridView1.PageIndex = e.NewPageIndex;
             ShowData();
         }
-
+        /// <summary>
+        /// Search city
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void SearchCity(object sender, EventArgs e)
+        {
+            string cityName = txtSearch.Text;
+            DataTable searchTBL = CityDAO.GetDataCityByName(txtSearch.Text.Trim());
+            if (searchTBL.Rows.Count > 0)
+            {
+                GridView1.DataSource = searchTBL;
+                GridView1.DataBind();
+            }
+            else
+            {
+                searchTBL.Rows.Add(searchTBL.NewRow());
+                GridView1.DataSource = searchTBL;
+                GridView1.DataBind();
+                int columncount = GridView1.Rows[0].Cells.Count;
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
+                GridView1.Rows[0].Cells[0].Text = "No Records Found";
+            }
+        }
+        /// <summary>
+        /// Add new city
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             string cityID = txtID.Text;
             string cityName = txtName.Text;
             string nationalID = txtNationalID.Text;
-            City c = new City();
-            c.CityID = cityID;
-            c.CityName = cityName;
-            c.NationalID = nationalID;
-            Response.Redirect("AdminCity.aspx");
+            if (CityDAO.DulicateCity(cityID))
+            {
+                phError.Controls.Add(new LiteralControl("<div class='alert alert-danger'>"));
+                Label error = new Label();
+                error.Text = "CityID has been dupplicated!";
+                phError.Controls.Add(error);
+                phError.Controls.Add(new LiteralControl("</div>"));
+                return;
+            }
+            else
+            {
+                City c = new City();
+                c.CityID = cityID;
+                c.CityName = cityName;
+                c.NationalID = nationalID;
+                if (CityDAO.AddCity(c))
+                {
+                    Session["addOK"] = "New CITY has been added!";
+                    Response.Redirect("AdminUser.aspx");
+                }
+            }
+
         }
     }
 }

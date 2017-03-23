@@ -8,6 +8,10 @@ namespace CityBus.Com.DAO
 {
     public class RouteDAO
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetDataRoute()
         {
             return DAO.GetDataTable("SELECT * FROM Route");

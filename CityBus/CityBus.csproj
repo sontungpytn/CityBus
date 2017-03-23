@@ -118,6 +118,7 @@
     <Content Include="Theme\css\ConfirmMessage.css" />
     <Content Include="Theme\css\index.css" />
     <Content Include="Theme\css\login.css" />
+    <Content Include="Theme\css\paging.css" />
     <Content Include="Theme\css\register.css" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.ttf" />
