@@ -10,96 +10,69 @@
 namespace CityBus {
     
     
-    public partial class Index {
+    public partial class BookingPage {
         
         /// <summary>
-        /// lbNeedSearch control.
+        /// lbBusName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNeedSearch;
+        protected global::System.Web.UI.WebControls.Label lbBusName;
         
         /// <summary>
-        /// cboFromCity control.
+        /// lbFromCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboFromCity;
+        protected global::System.Web.UI.WebControls.Label lbFromCity;
         
         /// <summary>
-        /// txtDepartureDate control.
+        /// lbToCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartureDate;
+        protected global::System.Web.UI.WebControls.Label lbToCity;
         
         /// <summary>
-        /// lbRequiredDate control.
+        /// lbFromTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRequiredDate;
+        protected global::System.Web.UI.WebControls.Label lbFromTime;
         
         /// <summary>
-        /// cboToCity control.
+        /// lbToTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboToCity;
+        protected global::System.Web.UI.WebControls.Label lbToTime;
         
         /// <summary>
-        /// txtPassengerNumber control.
+        /// lbFare control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassengerNumber;
+        protected global::System.Web.UI.WebControls.Label lbFare;
         
         /// <summary>
-        /// lbNumberRequired control.
+        /// lbAvailableSeat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNumberRequired;
-        
-        /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
-        /// lbError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbError;
-        
-        /// <summary>
-        /// gvResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvResult;
+        protected global::System.Web.UI.WebControls.Label lbAvailableSeat;
     }
 }
