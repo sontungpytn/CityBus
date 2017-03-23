@@ -44,14 +44,38 @@
         </div>
     </div>
     <form runat="server">
+        
+    </form>
+
+    <form method="post" id="passengerForm" action="BookingPage.aspx">
         <div class="container row">
             <div class="col-md-8 col-md-offset-2">
                 <%
                     for (int i = 0; i < sr.passNum; i++)
                     {
                 %>
-                <h1>as</h1>
+
+                <div class="well row">
+                    <h2>Passenger <%=(i+1) %></h2>
+                    <div class ="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input name="txtName<%=i %>" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>National ID</label>
+                           <input name="txtNational<%=i %>" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input name="txtPhone<%=i %>" class="form-control" required/>
+                        </div>
+                    </div>
+                </div>
+
                 <%}%>
+
+                <input type="submit" value="Book now" />
             </div>
         </div>
     </form>

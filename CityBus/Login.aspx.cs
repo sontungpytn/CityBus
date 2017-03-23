@@ -35,11 +35,9 @@ namespace CityBus
             {
                 lbMessage.Text = "Login successfully";
                 Session.Add("user", user);
-                if (Session["redirectUrl"] != null)
+                if (user.Role)
                 {
-                    string url = Session["redirectUrl"].ToString();
-                    Session.Remove("redirectUrl");
-                    Response.Redirect(url);
+                    Response.Redirect("/Admin/AdminUser.aspx");
                 }
                 else
                 {
