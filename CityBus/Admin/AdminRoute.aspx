@@ -14,14 +14,14 @@
                     <%--start search form--%>
                     <div class="form-inline">
                         <div class="form-group col-md-4 col-md-offset-8 ">
-                            <asp:TextBox ID="TextBox1" placeholder="City Name" onfocus="if(this.value===this.defaultValue)this.value='';"
+                            <asp:TextBox ID="txtSearch" placeholder="Route ID" onfocus="if(this.value===this.defaultValue)this.value='';"
                                 CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:LinkButton CssClass="btn btn-sm btn-info" ID="LinkButton3"
-                                runat="server">
+                                runat="server" OnClick="SearchRoute">
                                             <span class="glyphicon glyphicon-search"></span> Search
                             </asp:LinkButton>
                             <asp:LinkButton CssClass="btn btn-sm btn-info" ID="LinkButton4"
-                                runat="server">
+                                runat="server" OnClick="ShowAll">
                                             <span class="glyphicon glyphicon-list-alt"></span> Show all
                             </asp:LinkButton>
                         </div>
@@ -32,12 +32,12 @@
                     <%--show routeTBL--%>
                     <div class="col-md-12 table-responsive">
                         <asp:GridView ID="GridView1" CssClass="table table-hover"
-                            AllowPaging="true"
-                            runat="server" AutoGenerateColumns="false" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating">
+                            AllowPaging="true" DataKeyNames="RouteID"
+                            runat="server" AutoGenerateColumns="false" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" OnRowEditing="GridView1_RowEditing">
                             <Columns>
                                 <asp:BoundField DataField="RouteID" ReadOnly="true" HeaderText="RouteID" />
-                                <asp:BoundField DataField="Route" HeaderText="Route" />
-                                <asp:BoundField DataField="Duration" HeaderText="Duration (minutes)" />
+                                <asp:BoundField DataField="Route" ReadOnly="true" HeaderText="Route" />
+                                <asp:BoundField DataField="Duration" HeaderText="Duration(in minutes)" />
                                 <asp:CommandField ControlStyle-CssClass="btn btn-sm btn-warning glyphicon glyphicon-edit" ShowEditButton="true" />
                             </Columns>
                             <PagerStyle CssClass="pagination-sm" />

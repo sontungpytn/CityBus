@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using CityBus.Com.Entities;
+using System.Collections.Specialized;
 
 namespace CityBus
 {
@@ -39,6 +40,22 @@ namespace CityBus
                     Session.Add("msg", "You need search Bus first");
                     Response.Redirect("Index.aspx#search");
                 }
+            }
+
+            NameValueCollection posted = Request.Form;
+            if (posted.Count != 0)
+            {
+                List<Passenger> passengers = new List<Passenger>();
+                for (int i = 0; i < sr.passNum; i++)
+                {
+                    Passenger p = new Passenger();
+                    p.PassengerName = posted["txtName" + i];
+                    p.Phone = posted["txtPhone" + i];
+                    p.NationalID = posted["txtNational" + i];
+                    passengers.Add(p);
+                }
+
+
             }
         }
 

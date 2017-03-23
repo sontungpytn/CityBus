@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using CityBus.Com.Entities;
 
 namespace CityBus.Admin
 {
@@ -20,6 +21,11 @@ namespace CityBus.Admin
             {
                 ShowDataRoute();
             }
+        }
+        protected void SearchRoute(object sender,EventArgs e)
+        {
+            string routeID = txtSearch.Text;
+
         }
         protected void ShowDataRoute()
         {
@@ -53,9 +59,22 @@ namespace CityBus.Admin
             GridView1.EditIndex = -1;
             ShowDataRoute();
         }
-
+        //update
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            string routeID = GridView1.DataKeys[e.RowIndex].Value.ToString();
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            TextBox duration = (TextBox)row.Cells[2].Controls[0];
+            GridView1.EditIndex = -1;
+            //update data
+            RouteDAO.UpdateRoute(routeID, Convert.ToInt32(duration.Text));
+            ShowDataRoute();
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+            ShowDataRoute();
         }
     }
 }
