@@ -34,7 +34,7 @@ namespace CityBus.Com.DAO
             return DAO.ExecuteCommand(cmd);
         }
         /// <summary>
-        /// update password
+        /// update password by User
         /// </summary>
         /// <param name="email"></param>
         /// <param name="password"></param>
@@ -46,6 +46,37 @@ namespace CityBus.Com.DAO
                          " WHERE Email = @email";
             SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
             cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@email", email);
+            return DAO.ExecuteCommand(cmd);
+        }
+        /// <summary>
+        /// Update user by Admin
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public static bool UpdateUser(UserInfo u)
+        {
+            string sql = "UPDATE USERS" +
+                         " SET Password = @password," +
+                         " Name = @name" +
+                         " WHERE Email = @email";
+            SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
+            cmd.Parameters.AddWithValue("@password", u.Password);
+            cmd.Parameters.AddWithValue("@name", u.Name);
+            cmd.Parameters.AddWithValue("@role", u.Role);
+            cmd.Parameters.AddWithValue("@email", u.Email);
+            return DAO.ExecuteCommand(cmd);
+        }
+        /// <summary>
+        /// Delete User by Admin
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public static bool DeleteUser(string email)
+        {
+            string sql = " DELETE USERS" +
+                         " WHERE Email = @email";
+            SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
             cmd.Parameters.AddWithValue("@email", email);
             return DAO.ExecuteCommand(cmd);
         }
