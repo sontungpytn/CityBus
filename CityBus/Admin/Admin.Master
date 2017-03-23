@@ -16,12 +16,6 @@
     <!-- header logo: style can be found in header.less -->
 
     <%
-        UserInfo u = new UserInfo();
-        u.Email = "admin@citybus.com";
-        u.Name = "Administrator";
-        u.Password = "admin";
-        u.Role = true;
-        Session["user"] = u;
         if (Session["user"] == null) Response.Redirect("../Login.aspx");
         UserInfo user = (UserInfo)Session["user"];
     %>

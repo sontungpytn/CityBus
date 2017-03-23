@@ -22,10 +22,47 @@ namespace CityBus.Admin
                 ShowDataRoute();
             }
         }
-        protected void SearchRoute(object sender,EventArgs e)
+        //search route by id
+        protected void SearchRoute(object sender, EventArgs e)
         {
-            string routeID = txtSearch.Text;
-
+            DataTable searchTBL = RouteDAO.GetDataRouteByID(txtSearch.Text.Trim());
+            if (searchTBL.Rows.Count > 0)
+            {
+                GridView1.DataSource = searchTBL;
+                GridView1.DataBind();
+            }
+            else
+            {
+                searchTBL.Rows.Add(searchTBL.NewRow());
+                GridView1.DataSource = searchTBL;
+                GridView1.DataBind();
+                int columncount = GridView1.Rows[0].Cells.Count;
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
+                GridView1.Rows[0].Cells[0].Text = "No Records Found";
+            }
+        }
+        //Show all 
+        protected void ShowAll(object sender, EventArgs e)
+        {
+            DataTable dt = RouteDAO.GetDataRoute();
+            if (dt.Rows.Count > 0)
+            {
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            else
+            {
+                dt.Rows.Add(dt.NewRow());
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+                int columncount = GridView1.Rows[0].Cells.Count;
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
+                GridView1.Rows[0].Cells[0].Text = "No Records Found";
+            }
         }
         protected void ShowDataRoute()
         {

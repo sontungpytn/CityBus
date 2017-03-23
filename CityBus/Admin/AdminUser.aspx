@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <header class="panel-heading">
-                    User table
+                    USER TABLE
                 </header>
                 <div class="panel-body">
                     <div class="form-inline">
@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <asp:LinkButton CssClass="btn btn-info" ID="LinkButton1" OnClick="btnAdd_Click"
                                 runat="server">
-                                            <span class="glyphicon glyphicon-thumbs-up"></span> Add
+                                            <span class="glyphicon glyphicon-plus-sign"></span> Add
                             </asp:LinkButton>
                         </div>
                     </div>

@@ -21,6 +21,7 @@ namespace CityBus.Admin
             if (!IsPostBack)
                 ShowData();
         }
+        //search user by email
         protected void SearchUser(object sender, EventArgs e)
         {
             DataTable searchTBL = UserDAO.GetDataUsersByEmail(txtSearch.Text.Trim());
@@ -41,6 +42,7 @@ namespace CityBus.Admin
                 GridView1.Rows[0].Cells[0].Text = "No Records Found";
             }
         }
+        //show all user
         protected void ShowData()
         {
 
