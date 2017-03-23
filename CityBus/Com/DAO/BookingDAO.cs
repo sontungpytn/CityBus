@@ -30,10 +30,11 @@ namespace CityBus.Com.DAO
                 cmd.Parameters.AddWithValue("@num", passengers.Count);
                 cmd.Parameters.AddWithValue("@id", b.BusDetailID);
                 cmd.ExecuteNonQuery();
-
+                string bookingID;
                 do
                 {
-                    
+                    bookingID = "";
+                    cmd.CommandText = 
                 } while (true);
 
                 //insert booking
