@@ -145,6 +145,7 @@ namespace CityBus
                 sr.FromCity = cboFromCity.SelectedItem.ToString();
                 sr.ToCity = cboToCity.SelectedItem.ToString();
                 sr.passNum = int.Parse(txtPassengerNumber.Text);
+                sr.DepartureDate = Convert.ToDateTime(txtDepartureDate.Text);
                 Session.Add("searchResult", sr);
                 Response.Redirect("BookingPage.aspx");
             }

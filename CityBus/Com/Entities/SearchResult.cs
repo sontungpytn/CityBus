@@ -9,6 +9,7 @@ namespace CityBus.Com.Entities
     {
         public string DetailID { get; set; }
         public string BusName { get; set; }
+        public DateTime DepartureDate { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
         public int AvailableSeat { get; set; }

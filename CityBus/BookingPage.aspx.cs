@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using CityBus.Com.Entities;
 using System.Collections.Specialized;
+using CityBus.Com.DAO;
 
 namespace CityBus
 {
@@ -54,9 +55,17 @@ namespace CityBus
                     p.NationalID = posted["txtNational" + i];
                     passengers.Add(p);
                 }
+                UserInfo user =(UserInfo) Session["user"];
                 Booking b = new Booking();
-                b.Amount = 
+                b.BookingDate = DateTime.Now;
+                b.UserEmail = user.Email;
+                b.BookingState = true;
+                b.BusDetailID = sr.DetailID;
+                b.DepartureDate = sr.DepartureDate;
+                b.ArrivalDate = DateTime.Now;
+                b.Amount = sr.passNum * sr.Fare;
 
+                
             }
         }
 
