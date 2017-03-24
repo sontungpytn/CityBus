@@ -20,7 +20,7 @@
         UserInfo user = (UserInfo)Session["user"];
     %>
     <header class="header">
-        <a href="#" class="logo">City Bus
+        <a href="../Index.aspx" class="logo">City Bus
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -120,6 +120,11 @@
                     <li id="liNavBus" runat="server">
                         <a href="AdminBus.aspx">
                             <i class="fa fa-car"></i><span>Bus</span>
+                        </a>
+                    </li>
+                    <li id="li1" runat="server">
+                        <a href="../Index.aspx">
+                            <i class="fa fa-chrome"></i><span>Visit site</span>
                         </a>
                     </li>
                 </ul>

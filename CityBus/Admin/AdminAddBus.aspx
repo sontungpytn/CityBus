@@ -63,7 +63,7 @@
                                             <span class="fa fa-plus-square"></span> Save
                             </asp:LinkButton>
                             <asp:LinkButton CssClass="btn btn-info" ID="LinkButton2"
-                                runat="server">
+                                PostBackUrl="~/Admin/AdminBus.aspx" runat="server">
                                             <span class="fa fa-remove"></span> Cancel
                             </asp:LinkButton>
                         </div>
