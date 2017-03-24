@@ -41,5 +41,18 @@ namespace CityBus.Com.DAO
                           " FROM ROUTES WHERE RouteID = \'" + id + "\'";
             return DAO.GetDataTable(sql);
         }
+
+        public static bool addRoute(Route route)
+        {
+            string sql = "INSERT INTO [ROUTES] VALUES(@routeId,@fromCity,@toCity,@duration)";
+            SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
+            cmd.Parameters.AddWithValue("@routeId", route.RouteID);
+            cmd.Parameters.AddWithValue("@fromCity", route.FromCityID);
+            cmd.Parameters.AddWithValue("@toCity", route.ToCityID);
+            cmd.Parameters.AddWithValue("@duration",route.Duration);
+            return DAO.ExecuteCommand(cmd);
+        }
+
+
     }
 }
