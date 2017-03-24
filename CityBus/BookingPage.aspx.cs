@@ -84,6 +84,7 @@ namespace CityBus
                         "Departure Time " + sr.DepartureTime + " <br>  </p> " +
                         "<p>Thanks, <br> City Bus Team.</p>";
                         sm.Send();
+                        Response.Redirect("Profile.aspx");
                     }
                     catch (Exception)
                     {
