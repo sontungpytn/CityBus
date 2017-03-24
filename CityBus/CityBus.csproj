@@ -132,7 +132,11 @@
     <Content Include="Theme\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Theme\img\636140659029117301-893379077_city.jpeg" />
     <Content Include="Theme\img\City Wallpaper 11.jpg" />
+    <Content Include="Theme\img\city-wallpaper-10.jpg" />
+    <Content Include="Theme\img\Free City HD Wallpaper Images For Desktop Download.jpg" />
+    <Content Include="Theme\img\Sky_City_3278.jpg" />
     <Content Include="Theme\js\app.js" />
     <Content Include="Theme\js\citybus.js" />
     <Content Include="Theme\js\icheck.min.js" />

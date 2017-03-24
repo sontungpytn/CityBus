@@ -33,15 +33,15 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                    <th>Bus Name</th>
-                    <th>From City</th>
-                    <th>To City</th>
-                    <th>Departure Date</th>
-                    <th>Amount</th>
-                    <th>Departure Time</th>
-                    <th>Booking State</th>
-                    <th>Cancel booking</th>
-                        </tr>
+                        <th>Bus Name</th>
+                        <th>From City</th>
+                        <th>To City</th>
+                        <th>Departure Date</th>
+                        <th>Amount</th>
+                        <th>Departure Time</th>
+                        <th>Booking State</th>
+                        <th>Cancel booking</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <%
@@ -61,14 +61,13 @@
                             <%
                                 if (b.BookingState == true)
                                 {
-                                    %>
-                            <a class="btn btn-danger btn-block" href="CancelBooking.aspx?id=<%=b.BookingID %>"
-                                onclick="return confirm('Are you sure to cancel booking?')">
-                                Cancel booking
+                            %>
+                            <a class="btn btn-danger btn-block" href="CancelBooking.aspx?id=<%=b.BookingID %>">
+                               Cancel booking
                             </a>
                             <%
                                 }
-                                 %>
+                            %>
                         </td>
                     </tr>
                     <%
@@ -76,6 +75,7 @@
                     %>
                 </tbody>
             </table>
+            
         </div>
     </div>
 

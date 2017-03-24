@@ -4,23 +4,24 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Theme/css/index.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nova+Oval" rel="stylesheet"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="container" runat="server">
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
-    <h1>Index</h1>
+    <div class="container-fluid">
+        <div class="header text-center">
+            <span>CITY BUS</span>
+        </div>
+        <div id="slider">
+            <figure>
+                <img src="Theme/img/City Wallpaper 11.jpg" />
+                <img src="Theme/img/636140659029117301-893379077_city.jpeg" />
+                <img src="Theme/img/Free City HD Wallpaper Images For Desktop Download.jpg" />
+                <img src="Theme/img/Sky_City_3278.jpg" />
+                <img src="Theme/img/city-wallpaper-10.jpg" />
+            </figure>
+        </div>
+        
+    </div>
 
 
     <form runat="server">
@@ -60,11 +61,11 @@
                         </div>
                         <div class="form-group">
                             <label>Number of passengers</label>
-                            <asp:TextBox ID="txtPassengerNumber" runat="server" CssClass="form-control" ></asp:TextBox>
-                             <asp:Label ID="lbNumberRequired" runat="server" CssClass="alert-danger"></asp:Label>
+                            <asp:TextBox ID="txtPassengerNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:Label ID="lbNumberRequired" runat="server" CssClass="alert-danger"></asp:Label>
+                            <br />
                             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-block btn-warning" OnClick="btnSearch_Click" onclink="window.scrollTo(0, document.body.scrollHeight);" />
-                            <br />
-                            <br />
+                            
 
                         </div>
                     </div>
@@ -87,11 +88,11 @@
                         <asp:BoundField DataField="Arrival Time" HeaderText="Arrival Time" SortExpression="r.Duration" />
                         <asp:BoundField DataField="Available Seat" HeaderText="Available Seat" SortExpression="bd.AvailableSeat" />
                         <asp:BoundField DataField="Fare" HeaderText="Fare" SortExpression="b.Fare" />
-                        <asp:BoundField DataField="BusDetailID" HeaderText="BusDetailID" Visible="false"/>
+                        <asp:BoundField DataField="BusDetailID" HeaderText="BusDetailID" Visible="false" />
                         <asp:TemplateField HeaderText="Book">
                             <ItemTemplate>
-                                <asp:LinkButton runat="server" Text="Book now"  CssClass="btn btn-success"
-                                    CommandArgument='<%#Eval("BusDetailID") %>' CommandName="Book" >
+                                <asp:LinkButton runat="server" Text="Book now" CssClass="btn btn-success"
+                                    CommandArgument='<%#Eval("BusDetailID") %>' CommandName="Book">
                                 </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
