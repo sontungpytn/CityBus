@@ -47,21 +47,26 @@ namespace CityBus.Admin
             GridView1.PageIndex = e.NewPageIndex;
             ShowData();
         }
-
+        protected void AddBus(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminAddBus.aspx");
+        }
+        protected void UpdateBus(object sender, EventArgs e)
+        {
+            LinkButton lkUpdate = sender as LinkButton;
+            string busID = lkUpdate.CommandArgument;
+            Bus b = BusDAO.GetBusByID(busID);
+            Session.Add("bus", b);
+            Response.Redirect("AdminUpdateBus.aspx");
+        }
+        protected void ViewBusDetail(object sender, EventArgs e)
+        {
+            LinkButton lkViewDetail = sender as LinkButton;
+            string busID = lkViewDetail.CommandArgument;
+            Response.Redirect("AdminBusDetail.aspx?id=" + busID);
+        }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName.Equals("Update"))
-            {
-                GridViewRow rowSelect = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
-                Bus b = new Bus();
-                b.BusID = rowSelect.Cells[0].Text;
-                b.BusName = rowSelect.Cells[1].Text;
-                b.RouteID = rowSelect.Cells[2].Text;
-                b.Fare = Convert.ToDouble(rowSelect.Cells[3].Text);
-                b.TotalSeat = Convert.ToInt32(rowSelect.Cells[4].Text);
-                Session.Add("bus", b);
-                Response.Redirect("AdminUpdateBus.aspx");
-            }
         }
     }
 }

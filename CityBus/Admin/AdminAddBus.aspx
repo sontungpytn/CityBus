@@ -1,21 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminUpdateBus.aspx.cs" Inherits="CityBus.Admin.AdminUpdateBus" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminAddBus.aspx.cs" Inherits="CityBus.Admin.AdminAddBus" %>
 
-<%@ Import Namespace="CityBus.Com.Entities" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="col-md-12">
         <div class="panel panel-primary">
             <header class="panel-heading">
-                UPDATE BUS
+                ADD NEW BUS
             </header>
             <div class="panel-body">
                 <form id="form1" class="form-horizontal" runat="server">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">BusID</label>
-                        <div class="col-sm-9">
-                            <asp:TextBox ID="txtID" ReadOnly="true"
-                                CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Bus Name</label>
                         <div class="col-sm-9">
@@ -26,7 +18,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Select RouteID</label>
                         <div class="col-sm-9">
-                            <asp:DropDownList AutoPostBack="true" ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1"></asp:DropDownList>
+                            <asp:DropDownList AutoPostBack="true" ID="ddlRoute" runat="server" OnSelectedIndexChanged="ddlRoute_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,6 +36,19 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Departure date</label>
+                        <div class="col-sm-9">
+                            <input runat="server" id="txtDate" type="date" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Departure time</label>
+                        <div class="col-sm-9">
+                            <asp:TextBox ID="txtTime" TextMode="Time"
+                                CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">Total seat</label>
                         <div class="col-sm-9">
                             <asp:TextBox ID="txtSeat"
@@ -51,14 +56,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-9 col-sm-offset-2">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-9">
                             <asp:LinkButton CssClass="btn btn-info" ID="LinkButton1"
-                                runat="server" OnClick="LinkButton1_Click">
-                                            <span class="glyphicon glyphicon-saved"></span> Save
+                                OnClick="AddBus" runat="server">
+                                            <span class="fa fa-plus-square"></span> Save
                             </asp:LinkButton>
-                            <asp:LinkButton CssClass="btn btn-info" ID="LinkButton3"
-                                runat="server" OnClick="Cancel">
-                                            <span class="glyphicon glyphicon-remove-circle"></span> Cancel
+                            <asp:LinkButton CssClass="btn btn-info" ID="LinkButton2"
+                                runat="server">
+                                            <span class="fa fa-remove"></span> Cancel
                             </asp:LinkButton>
                         </div>
                     </div>

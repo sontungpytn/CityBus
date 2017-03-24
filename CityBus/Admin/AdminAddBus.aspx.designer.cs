@@ -10,7 +10,7 @@
 namespace CityBus.Admin {
     
     
-    public partial class AdminUpdateBus {
+    public partial class AdminAddBus {
         
         /// <summary>
         /// form1 control.
@@ -22,15 +22,6 @@ namespace CityBus.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtID;
-        
-        /// <summary>
         /// txtBusName control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,13 @@ namespace CityBus.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtBusName;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlRoute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRoute;
         
         /// <summary>
         /// txtRouteName control.
@@ -67,6 +58,24 @@ namespace CityBus.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtFare;
         
         /// <summary>
+        /// txtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtDate;
+        
+        /// <summary>
+        /// txtTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTime;
+        
+        /// <summary>
         /// txtSeat control.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,13 @@ namespace CityBus.Admin {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
-        /// LinkButton3 control.
+        /// LinkButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
         
         /// <summary>
         /// phError control.

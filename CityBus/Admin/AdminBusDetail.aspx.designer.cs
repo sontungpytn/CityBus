@@ -10,7 +10,7 @@
 namespace CityBus.Admin {
     
     
-    public partial class AdminBus {
+    public partial class AdminBusDetail {
         
         /// <summary>
         /// form1 control.
@@ -20,15 +20,6 @@ namespace CityBus.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAdd;
         
         /// <summary>
         /// txtSearch control.
