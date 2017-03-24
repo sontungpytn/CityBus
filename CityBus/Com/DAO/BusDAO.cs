@@ -9,6 +9,10 @@ namespace CityBus.Com.DAO
 {
     public class BusDAO
     {
+        public static DataTable GetBus()
+        {
+            return DAO.GetDataTable("SELECT * FROM BUSES");
+        }
         public static DataTable GetDataBusByRoute(string fromCity, string toCity, DateTime departureDate, string order, int seats)
         {
             string sql = "SELECT b.BusName,  bd.DepartureTime, r.Duration, bd.AvailableSeat ,b.Fare, bd.BusDetailID " +
@@ -33,5 +37,6 @@ namespace CityBus.Com.DAO
             conn.Close();
             return busTBL;
         }
+        
     }
 }

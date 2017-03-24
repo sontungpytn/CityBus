@@ -58,7 +58,7 @@
                         <div class="form-group">
                             <asp:LinkButton CssClass="btn btn-info" ID="LinkButton1" OnClick="btnAdd_Click"
                                 runat="server">
-                                            <span class="glyphicon glyphicon-thumbs-up"></span> Add
+                                            <span class="glyphicon glyphicon-plus-sign"></span> Add
                             </asp:LinkButton>
                             <%--<asp:Button ID="" runat="server" CssClass="btn btn-block btn-info" Text="Add" OnClick="btnAdd_Click" />--%>
                         </div>
