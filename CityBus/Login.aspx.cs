@@ -27,6 +27,11 @@ namespace CityBus
             
             string password = txtPassword.Text;
 
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                lbMessage.Text = "Email must be fill";
+            }
+
             UserInfo user = UserDAO.SearchUser(email, password);
 
             

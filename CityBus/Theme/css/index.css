@@ -1,21 +1,53 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
-
-#search{
-    font-family: 'Exo', sans-serif;
+﻿input{
+    height:45px !important;
+}
+select{
+    height:45px !important;
+}
+label{
+    margin-bottom:15px;
 }
 
-#search input, #search select{
-    width:70%;
-    height:40px;
-    font-size:18px;
-    padding:6px;
-    margin:5px;
+@keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
 }
 
-#search label{
-    font-size:20px;
+body { margin: 0; } 
+img{
+    width:100%;
 }
-#search input[type=submit]{
-    margin-top:20px;
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
+
+.header{
+    z-index:2;
+    position:absolute;
+    margin:auto;
+    top:450px;
+    left:660px;
+    background-color:rgba(255,255,255,0.5);
+}
+
+.header span{
+    font-size:80px;
+    font-weight:200;
+    color:aqua;
+    font-family: 'Nova Oval', cursive;
 }
