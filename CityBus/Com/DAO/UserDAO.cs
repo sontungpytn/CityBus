@@ -123,11 +123,33 @@ namespace CityBus.Com.DAO
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
+                reader.Close();
                 conn.Close();
                 return true;
             }
+            reader.Close();
             conn.Close();
             return false;
+        }
+
+        public static UserInfo GetUserByEmail(string email)
+        {
+            SqlConnection conn = DAO.Connection;
+            conn.Open();
+            UserInfo user = null;
+            string sql = "SELECT * FROM Users WHERE Email = @email ";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                user = new UserInfo();
+                user.Email = reader[0].ToString() ;
+                user.Name = reader[2].ToString();
+            }
+            reader.Close();
+            conn.Close();
+            return user;
         }
 
     }

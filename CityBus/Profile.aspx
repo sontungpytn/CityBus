@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="CityBus.Profile" %>
+﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="CityBus.Profile" %>
 
 <%@ Import Namespace="CityBus.Com.Entities" %>
 <%@ Import Namespace="CityBus.Com.DAO" %>
@@ -26,12 +26,13 @@
     <div class="container">
         <div class="jumbotron userinfo">
             <h2>Name: <%=user.Name %></h2>
-            <h2>Name: <%=user.Email %></h2>
-            <button class="btn btn-primary">Change Password</button>
+            <h2>Email: <%=user.Email %></h2>
+            <a href="ChangePassword.aspx" class="btn btn-primary">Change Password</a>
         </div>
         <div class="well">
             <table class="table table-hover">
                 <thead>
+                    <tr>
                     <th>Bus Name</th>
                     <th>From City</th>
                     <th>To City</th>
@@ -39,7 +40,8 @@
                     <th>Amount</th>
                     <th>Departure Time</th>
                     <th>Booking State</th>
-                    <th></th>
+                    <th>Cancel booking</th>
+                        </tr>
                 </thead>
                 <tbody>
                     <%
@@ -53,8 +55,21 @@
                         <td><%=b.DepartureDate %></td>
                         <td><%=b.Amount %></td>
                         <td><%=b.DepartureTime %></td>
-                        <td><%=b.BookingState %></td>
-                        <td><%=b.BusName %></td>
+                        <td><%=(b.BookingState == false)? "Close":"Open"%></td>
+
+                        <td>
+                            <%
+                                if (b.BookingState == true)
+                                {
+                                    %>
+                            <a class="btn btn-danger btn-block" href="CancelBooking.aspx?id=<%=b.BookingID %>"
+                                onclick="return confirm('Are you sure to cancel booking?')">
+                                Cancel booking
+                            </a>
+                            <%
+                                }
+                                 %>
+                        </td>
                     </tr>
                     <%
                         }

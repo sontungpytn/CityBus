@@ -31,7 +31,7 @@
                             <br />
                         </div>
                         <asp:Button ID="Button1" runat="server" Text="Login" CssClass="btn btn-warning btn-block" OnClick="Button1_Click"/>
-                        <h3 class="text-right"><a href="#">Forgot password?</a></h3>
+                        <h3 class="text-right"><a href="ForgotPassword.aspx">Forgot password?</a></h3>
                     </div> 
                 </div>
             </div>

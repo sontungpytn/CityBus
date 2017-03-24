@@ -45,8 +45,9 @@
                             <br />
                         </div>
                         <asp:Button ID="Button1" runat="server" Text="GET STARTED" CssClass="btn btn-warning btn-block" OnClick="Button1_Click"/>
-                        <h3 class="text-right"><a href="#">Have a account?</a></h3>
+                        <h3 class="text-right"><a href="Login.aspx">Have a account?</a></h3>
                     </div> 
+                    
                 </div>
             </div>
         </div>
