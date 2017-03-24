@@ -107,6 +107,9 @@
     <Content Include="Admin\AdminUpdateBus.aspx" />
     <Content Include="Admin\AdminUser.aspx" />
     <Content Include="BookingPage.aspx" />
+    <Content Include="CancelBooking.aspx" />
+    <Content Include="ChangePassword.aspx" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -117,6 +120,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Theme\css\admin-style.css" />
+    <Content Include="Theme\css\bookingpage.css" />
     <Content Include="Theme\css\bootstrap.min.css" />
     <Content Include="Theme\css\ConfirmMessage.css" />
     <Content Include="Theme\css\font-awesome.css" />
@@ -130,6 +134,7 @@
     <Content Include="Theme\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Theme\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Theme\img\City Wallpaper 11.jpg" />
     <Content Include="Theme\js\app.js" />
     <Content Include="Theme\js\citybus.js" />
     <Content Include="Theme\js\icheck.min.js" />
@@ -226,6 +231,20 @@
     <Compile Include="BookingPage.aspx.designer.cs">
       <DependentUpon>BookingPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CancelBooking.aspx.cs">
+      <DependentUpon>CancelBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelBooking.aspx.designer.cs">
+      <DependentUpon>CancelBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Com\DAO\BookingDAO.cs" />
     <Compile Include="Com\DAO\BusDAO.cs" />
     <Compile Include="Com\DAO\BusDetailDAO.cs" />
@@ -243,6 +262,13 @@
     <Compile Include="Com\Entities\SearchResult.cs" />
     <Compile Include="Com\Entities\SendMail.cs" />
     <Compile Include="Com\Entities\UserInfo.cs" />
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

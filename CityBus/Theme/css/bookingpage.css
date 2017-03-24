@@ -1,0 +1,35 @@
+﻿body{
+    background-image:url("../img/City Wallpaper 11.jpg");
+    background-size:cover;
+}
+
+
+.search-result{
+    background-color:rgba(255,255,255,0.5);
+    margin-top:10px;
+    margin-bottom:10px;
+    padding:5px;
+}
+.search-result span{
+    font-size:18px;
+    font-weight:bold;
+}
+#passengerForm{
+    padding-bottom:20px;
+}
+.detail{
+    padding:30px;
+    background-color:aquamarine;
+}
+.detail .header span{
+    font-size:25px;
+    font-weight:bold;
+}
+.passengerInfo{
+    background-color:rgba(255, 255, 255, 0.5);
+    margin-bottom:20px; 
+    border-radius:10px;
+}
+.btn-modify{
+    background-color:aquamarine !important;
+}

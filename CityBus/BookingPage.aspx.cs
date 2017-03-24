@@ -35,6 +35,8 @@ namespace CityBus
                     lbFare.Text = sr.Fare + "";
                     lbBusName.Text = sr.BusName;
                     lbAvailableSeat.Text = sr.AvailableSeat + "";
+                    lbTotal.Text = sr.Fare * sr.passNum + "";
+                    lbDepartureDate.Text = sr.DepartureDate.ToString("MMMM dd, yyyy");
                 }
                 else
                 {
@@ -64,8 +66,36 @@ namespace CityBus
                 b.DepartureDate = sr.DepartureDate;
                 b.ArrivalDate = DateTime.Now;
                 b.Amount = sr.passNum * sr.Fare;
-
-                BookingDAO.AddBooking(b, passengers);
+                
+                try
+                {
+                    BookingDAO.AddBooking(b, passengers);
+                    try
+                    {
+                        SendMail sm = new SendMail();
+                        sm.MailTo = user.Email;
+                        sm.Subject = "Booking new bus from City Bus";
+                        sm.Body = "<h2>Hi, " + user.Name + "</h2>" +
+                        "<p>You have been booked new bus from City Bus. Bus info: </p>"+
+                        "<p> Bus Name "+sr.BusName+"<br>"+
+                        "From "+sr.FromCity+" <br> "+
+                        "To " + sr.ToCity + " <br> "+
+                        "Departure Date " + sr.DepartureDate.ToString("MMMM dd, yyyy") + " <br> "+
+                        "Departure Time " + sr.DepartureTime + " <br>  </p> " +
+                        "<p>Thanks, <br> City Bus Team.</p>";
+                        sm.Send();
+                    }
+                    catch (Exception)
+                    {
+                        msgError.Text = "Booking succesfully but can not send email";
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    msgError.Text = "Can not booking";
+                }
+                
             }
         }
 

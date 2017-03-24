@@ -49,7 +49,7 @@ namespace CityBus.Com.DAO
                 cmd.CommandText = "INSERT INTO Booking VALUES(@id,@userEmail,@state,@date,@busDetailID,@departureDate,@arrivalDate,@amount)";
                 cmd.Parameters.AddWithValue("@id", bookingID);
                 cmd.Parameters.AddWithValue("@userEmail", b.UserEmail);
-                cmd.Parameters.AddWithValue("@state", b.BookingState);
+                cmd.Parameters.AddWithValue("@state", 1);
                 cmd.Parameters.AddWithValue("@date", b.BookingDate);
                 cmd.Parameters.AddWithValue("@busDetailID", b.BusDetailID);
                 cmd.Parameters.AddWithValue("@departureDate", b.DepartureDate);
@@ -86,7 +86,7 @@ namespace CityBus.Com.DAO
             {
                 
                 transaction.Rollback();
-                
+                throw ex;
             }
             finally
             {
@@ -105,7 +105,7 @@ namespace CityBus.Com.DAO
             string sql = "SELECT bo.BookingID,b.BusName,bo.BookingDate," +
                         " (SELECT CityName FROM CITIES WHERE r.FromCityID = CityID) as FromCity," +
                         " (SELECT CityName FROM CITIES WHERE r.ToCityID = CityID) as ToCity," +
-                        " bo.Amount,bo.DepartureDate,bd.DepartureTime,bo.BookingDate" +
+                        " bo.Amount,bo.DepartureDate,bd.DepartureTime,bo.BookingState" +
                         " FROM BOOKING bo, BUSDETAIL bd,BUSES b, ROUTES r" +
                         " WHERE bo.BusDetailID = bd.BusDetailID" +
                         " AND bd.BusID = b.BusID" +
@@ -125,7 +125,7 @@ namespace CityBus.Com.DAO
                 b.Amount = double.Parse(r[5].ToString());
                 b.DepartureDate = DateTime.Parse(r[6].ToString());
                 b.DepartureTime = r[7].ToString();
-                b.BookingDate = DateTime.Parse(r[8].ToString());
+                b.BookingState = r[8].ToString().Equals("True");
                 bookings.Add(b);
             }
             conn.Close();
@@ -136,10 +136,31 @@ namespace CityBus.Com.DAO
         public static void DeleteBooking(string bookingID)
         {
             conn.Open();
+
+            //delete passenger
             string sql = "DELETE PASSENGER WHERE BookingID = \'" + bookingID + "\'";
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+            int passnum =cmd.ExecuteNonQuery();
+
+            //get bus detail
+            sql = "SELECT BusDetailID from BOOKING WHERE BookingID = \'" + bookingID + "\'";
+            SqlDataReader reader = cmd.ExecuteReader();
+            string detailID = "";
+            if (reader.Read())
+            {
+                detailID = reader[0].ToString();
+            }
+            reader.Close();
+
+            //delete booking
             sql = "DELETE BOOKING WHERE BookingID = \'" + bookingID + "\'";
+            cmd.CommandText = sql;
+            cmd.ExecuteNonQuery();
+
+            //update available seats
+            cmd.CommandText = "UPDATE BUSDETAIL SET AvailableSeat = (AvailableSeat + @num) WHERE BusDetailID = @busdetailid";
+            cmd.Parameters.AddWithValue("@num", passnum);
+            cmd.Parameters.AddWithValue("@busdetailid", detailID);
             cmd.ExecuteNonQuery();
             conn.Close();
         }

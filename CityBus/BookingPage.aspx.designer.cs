@@ -40,6 +40,33 @@ namespace CityBus {
         protected global::System.Web.UI.WebControls.Label lbToCity;
         
         /// <summary>
+        /// lbFare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbFare;
+        
+        /// <summary>
+        /// lbAvailableSeat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbAvailableSeat;
+        
+        /// <summary>
+        /// msgError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label msgError;
+        
+        /// <summary>
         /// lbFromTime control.
         /// </summary>
         /// <remarks>
@@ -58,21 +85,21 @@ namespace CityBus {
         protected global::System.Web.UI.WebControls.Label lbToTime;
         
         /// <summary>
-        /// lbFare control.
+        /// lbTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbFare;
+        protected global::System.Web.UI.WebControls.Label lbTotal;
         
         /// <summary>
-        /// lbAvailableSeat control.
+        /// lbDepartureDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbAvailableSeat;
+        protected global::System.Web.UI.WebControls.Label lbDepartureDate;
     }
 }
