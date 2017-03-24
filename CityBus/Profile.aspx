@@ -62,7 +62,8 @@
                                 if (b.BookingState == true)
                                 {
                             %>
-                            <a class="btn btn-danger btn-block" href="CancelBooking.aspx?id=<%=b.BookingID %>">
+                            <a class="btn btn-danger btn-block" href="CancelBooking.aspx?id=<%=b.BookingID %>"
+                                onclick="return confirm('Are you sure ?')">
                                Cancel booking
                             </a>
                             <%
