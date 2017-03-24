@@ -38,7 +38,7 @@
                                 <asp:BoundField DataField="RouteID" ReadOnly="true" HeaderText="RouteID" />
                                 <asp:BoundField DataField="Route" ReadOnly="true" HeaderText="Route" />
                                 <asp:BoundField DataField="Duration" HeaderText="Duration(in minutes)" />
-                                <asp:CommandField ControlStyle-CssClass="btn btn-sm btn-warning glyphicon glyphicon-edit" ShowEditButton="true" />
+                                <asp:CommandField ControlStyle-CssClass="btn btn-sm btn-block glyphicon glyphicon-edit" ShowEditButton="true" />
                             </Columns>
                             <PagerStyle CssClass="pagination-sm" />
                         </asp:GridView>

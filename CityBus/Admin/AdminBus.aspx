@@ -16,12 +16,16 @@
                                             <span class="fa fa-plus-square-o"></span> Add bus
                             </asp:LinkButton>
                         </div>
-                        <div class="form-group col-md-3 col-md-offset-7">
+                        <div class="form-group col-md-4 col-md-offset-6">
                             <asp:TextBox ID="txtSearch" placeholder="Bus Name" onfocus="if(this.value===this.defaultValue)this.value='';"
                                 CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:LinkButton CssClass="btn btn-sm btn-info" ID="btnSearch"
-                                runat="server">
+                                OnClick="SearchBus" runat="server">
                                             <span class="glyphicon glyphicon-search"></span> Search
+                            </asp:LinkButton>
+                            <asp:LinkButton CssClass="btn btn-sm btn-info" ID="LinkButton2" OnClick="ShowAll"
+                                runat="server">
+                                            <span class="glyphicon glyphicon-list-alt"></span> Show all
                             </asp:LinkButton>
                         </div>
                     </div>

@@ -28,9 +28,7 @@ namespace CityBus.Com.DAO
         {
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            SqlTransaction transaction = conn.BeginTransaction();
             cmd.Connection = conn;
-            cmd.Transaction = transaction;
             try
             {
                 cmd.CommandText = "INSERT INTO BusDetail VALUES(@id,@bid,@time,@date,@availableSeat)";
@@ -43,7 +41,7 @@ namespace CityBus.Com.DAO
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+
             }
             finally
             {

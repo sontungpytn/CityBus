@@ -44,23 +44,7 @@ namespace CityBus.Admin
         }
         protected void ShowAll(object sender, EventArgs e)
         {
-            DataTable dt = CityDAO.GetDataCity();
-            if (dt.Rows.Count > 0)
-            {
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-            }
-            else
-            {
-                dt.Rows.Add(dt.NewRow());
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
-                int columncount = GridView1.Rows[0].Cells.Count;
-                GridView1.Rows[0].Cells.Clear();
-                GridView1.Rows[0].Cells.Add(new TableCell());
-                GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
-                GridView1.Rows[0].Cells[0].Text = "No Records Found";
-            }
+            ShowDataCity();
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -110,7 +94,6 @@ namespace CityBus.Admin
         /// <param name="e"></param>
         protected void SearchCity(object sender, EventArgs e)
         {
-            string cityName = txtSearch.Text;
             DataTable searchTBL = CityDAO.GetDataCityByName(txtSearch.Text.Trim());
             if (searchTBL.Rows.Count > 0)
             {

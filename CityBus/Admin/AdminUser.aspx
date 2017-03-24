@@ -27,7 +27,7 @@
                                 <asp:BoundField DataField="password" HeaderText="Password" />
                                 <asp:BoundField DataField="name" HeaderText="Fullname" />
                                 <asp:CheckBoxField DataField="role" ReadOnly="true" HeaderText="Is Admin" />
-                                <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm btn-warning glyphicon glyphicon-edit" />
+                                <asp:CommandField ShowEditButton="true" ControlStyle-CssClass="btn btn-sm btn-block glyphicon glyphicon-edit" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:LinkButton CssClass="btn btn-sm btn-danger" ID="btnDelete" OnClientClick="return confirm('Are you sure to delete?')"

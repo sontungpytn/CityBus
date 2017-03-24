@@ -18,6 +18,10 @@ namespace CityBus.Com.DAO
         {
             return DAO.GetDataTable("SELECT * FROM BUSES ORDER BY BusName");
         }
+        public static DataTable GetBusByName(string name)
+        {
+            return DAO.GetDataTable("SELECT * FROM BUSES WHERE BusName = N\'" + name + "\'");
+        }
         /// <summary>
         /// Get Bus by BusID
         /// </summary>
@@ -99,9 +103,7 @@ namespace CityBus.Com.DAO
             SqlConnection conn = DAO.Connection;
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            SqlTransaction transaction = conn.BeginTransaction();
             cmd.Connection = conn;
-            cmd.Transaction = transaction;
             try
             {
                 cmd.CommandText = "INSERT INTO Buses VALUES(@bid,@name,@routeID,@fare,@seat)";
@@ -114,7 +116,6 @@ namespace CityBus.Com.DAO
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
             }
             finally
             {

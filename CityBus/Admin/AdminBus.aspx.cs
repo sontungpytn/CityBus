@@ -65,6 +65,31 @@ namespace CityBus.Admin
             string busID = lkViewDetail.CommandArgument;
             Response.Redirect("AdminBusDetail.aspx?id=" + busID);
         }
+        //search bus
+        protected void SearchBus(object sender, EventArgs e)
+        {
+            DataTable searchTBL = BusDAO.GetBusByName(txtSearch.Text.Trim());
+            if (searchTBL.Rows.Count > 0)
+            {
+                GridView1.DataSource = searchTBL;
+                GridView1.DataBind();
+            }
+            else
+            {
+                searchTBL.Rows.Add(searchTBL.NewRow());
+                GridView1.DataSource = searchTBL;
+                GridView1.DataBind();
+                int columncount = GridView1.Rows[0].Cells.Count;
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
+                GridView1.Rows[0].Cells[0].Text = "No Records Found";
+            }
+        }
+        protected void ShowAll(object sender, EventArgs e)
+        {
+            ShowData();
+        }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
         }

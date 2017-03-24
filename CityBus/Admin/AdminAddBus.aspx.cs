@@ -100,11 +100,12 @@ namespace CityBus.Admin
                 BusDetail bd = new BusDetail();
                 bd.BusDetailID = bdID;
                 bd.BusID = bid;
-                //bd.DepartureTime = time;
+                bd.DepartureTime = time;
                 bd.DepartureDate = Convert.ToDateTime(date);
                 bd.AvailableSeat = totalSeat;
                 BusDetailDAO.AddBusDetail(bd);
                 conn.Close();
+                Response.Redirect("AdminBus.aspx");
             }
         }
         protected void ddlRoute_SelectedIndexChanged(object sender, EventArgs e)

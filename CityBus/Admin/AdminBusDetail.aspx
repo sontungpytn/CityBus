@@ -8,7 +8,13 @@
                 </header>
                 <div class="panel-body">
                     <div class="form-inline">
-                        <div class="form-group col-md-3 col-md-offset-9">
+                        <div class="form-group col-md-2">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block" ID="btnAdd"
+                                PostBackUrl="~/Admin/AdminBus.aspx" runat="server">
+                                            <span class="fa fa-backward"></span> Back to Bus
+                            </asp:LinkButton>
+                        </div>
+                        <div class="form-group col-md-3 col-md-offset-7">
                             <asp:TextBox ID="txtSearch" placeholder="Bus Name" onfocus="if(this.value===this.defaultValue)this.value='';"
                                 CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:LinkButton CssClass="btn btn-sm btn-info" ID="btnSearch"
