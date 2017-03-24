@@ -48,6 +48,15 @@ namespace CityBus.Com.DAO
             conn.Close();
             return b;
         }
+        /// <summary>
+        /// Get Bus by route
+        /// </summary>
+        /// <param name="fromCity"></param>
+        /// <param name="toCity"></param>
+        /// <param name="departureDate"></param>
+        /// <param name="order"></param>
+        /// <param name="seats"></param>
+        /// <returns></returns>
         public static DataTable GetDataBusByRoute(string fromCity, string toCity, DateTime departureDate, string order, int seats)
         {
             string sql = "SELECT b.BusName,  bd.DepartureTime, r.Duration, bd.AvailableSeat ,b.Fare, bd.BusDetailID " +
@@ -86,7 +95,10 @@ namespace CityBus.Com.DAO
                          " TotalSeat = @seat" +
                          " WHERE BusID = @id";
             SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
-            cmd.Parameters.AddWithValue("@name", b.BusName);
+            SqlParameter pName = new SqlParameter("@name", b.BusName);
+            pName.SqlDbType = SqlDbType.NVarChar;
+            pName.Size = 50;
+            cmd.Parameters.Add(pName);
             cmd.Parameters.AddWithValue("@routeID", b.RouteID);
             cmd.Parameters.AddWithValue("@fare", b.Fare);
             cmd.Parameters.AddWithValue("@seat", b.TotalSeat);
@@ -108,7 +120,10 @@ namespace CityBus.Com.DAO
             {
                 cmd.CommandText = "INSERT INTO Buses VALUES(@bid,@name,@routeID,@fare,@seat)";
                 cmd.Parameters.AddWithValue("@bid", b.BusID);
-                cmd.Parameters.AddWithValue("@name", b.BusName);
+                SqlParameter pName = new SqlParameter("@name", b.BusName);
+                pName.SqlDbType = SqlDbType.NVarChar;
+                pName.Size = 50;
+                cmd.Parameters.Add(pName);
                 cmd.Parameters.AddWithValue("@routeID", b.RouteID);
                 cmd.Parameters.AddWithValue("@fare", b.Fare);
                 cmd.Parameters.AddWithValue("@seat", b.TotalSeat);

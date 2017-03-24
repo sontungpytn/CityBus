@@ -22,7 +22,7 @@
                             </asp:LinkButton>
                         </div>
                     </div>
-                    <hr />
+                    <br /><br /><hr /><br />
                     <asp:GridView ID="GridView1" runat="server" DataKeyNames="CityID" AllowPaging="true"
                         AutoGenerateColumns="False" CssClass="table table-hover" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
                         <Columns>

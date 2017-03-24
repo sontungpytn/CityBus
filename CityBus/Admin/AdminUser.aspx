@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AdminUser.aspx.cs" Inherits="CityBus.Admin.AdminUser" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form id="form1" runat="server">
@@ -18,7 +19,7 @@
                             </asp:LinkButton>
                         </div>
                     </div>
-                    <hr />
+                    <br /><br /><hr /><br />
                     <div class="col-md-12 table-responsive">
                         <asp:GridView ID="GridView1" runat="server" DataKeyNames="Email" AllowPaging="true" PageSize="10"
                             AutoGenerateColumns="False" CssClass="table table-hover" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnPageIndexChanging="GridView1_PageIndexChanging">

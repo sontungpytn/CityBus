@@ -19,7 +19,7 @@ namespace CityBus.Com.DAO
             string sql = "SELECT RouteID, " +
                           " ((SELECT CityName FROM CITIES WHERE CityID = FromCityID) + ' - '" +
                           " + (SELECT CityName FROM CITIES WHERE CityID = ToCityID)) as Route, Duration" +
-                          " FROM ROUTES ";
+                          " FROM ROUTES ORDER BY Route DESC ";
             return DAO.GetDataTable(sql);
         }
         //update Route

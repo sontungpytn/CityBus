@@ -10,7 +10,7 @@
 namespace CityBus.Admin {
     
     
-    public partial class AdminAddRoute {
+    public partial class AdminCreateRoute {
         
         /// <summary>
         /// form1 control.
@@ -20,15 +20,6 @@ namespace CityBus.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// txtRouteID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRouteID;
         
         /// <summary>
         /// cbFromCity control.
@@ -67,22 +58,13 @@ namespace CityBus.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtDuration;
         
         /// <summary>
-        /// durationError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder durationError;
-        
-        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.LinkButton btnSave;
         
         /// <summary>
         /// btnBack control.
@@ -91,6 +73,15 @@ namespace CityBus.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
+        protected global::System.Web.UI.WebControls.LinkButton btnBack;
+        
+        /// <summary>
+        /// durationError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder durationError;
     }
 }

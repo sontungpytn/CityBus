@@ -32,7 +32,10 @@ namespace CityBus.Com.DAO
             string sql = "INSERT INTO Cities VALUES(@id,@name,@national)";
             SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
             cmd.Parameters.AddWithValue("@id", c.CityID);
-            cmd.Parameters.AddWithValue("@name", c.CityName);
+            SqlParameter pName = new SqlParameter("@name", c.CityName);
+            pName.SqlDbType = SqlDbType.NVarChar;
+            pName.Size = 50;
+            cmd.Parameters.Add(pName);
             cmd.Parameters.AddWithValue("@national", c.NationalID);
             return DAO.ExecuteCommand(cmd);
         }
@@ -55,7 +58,10 @@ namespace CityBus.Com.DAO
                          " NationalID = @nationalID" +
                          " WHERE CityID = @cityID";
             SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
-            cmd.Parameters.AddWithValue("@name", c.CityName);
+            SqlParameter pName = new SqlParameter("@name", c.CityName);
+            pName.SqlDbType = SqlDbType.NVarChar;
+            pName.Size = 50;
+            cmd.Parameters.Add(pName);
             cmd.Parameters.AddWithValue("@nationalID", c.NationalID);
             cmd.Parameters.AddWithValue("@cityID", c.CityID);
             return DAO.ExecuteCommand(cmd);
@@ -81,6 +87,6 @@ namespace CityBus.Com.DAO
             conn.Close();
             return false;
         }
-        
+
     }
 }

@@ -103,6 +103,7 @@
     <Content Include="Admin\AdminBus.aspx" />
     <Content Include="Admin\AdminBusDetail.aspx" />
     <Content Include="Admin\AdminCity.aspx" />
+    <Content Include="Admin\AdminCreateRoute.aspx" />
     <Content Include="Admin\AdminRoute.aspx" />
     <Content Include="Admin\AdminUpdateBus.aspx" />
     <Content Include="Admin\AdminUser.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="Admin\AdminCity.aspx.designer.cs">
       <DependentUpon>AdminCity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminCreateRoute.aspx.cs">
+      <DependentUpon>AdminCreateRoute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminCreateRoute.aspx.designer.cs">
+      <DependentUpon>AdminCreateRoute.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminRoute.aspx.cs">
       <DependentUpon>AdminRoute.aspx</DependentUpon>

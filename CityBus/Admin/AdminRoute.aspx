@@ -13,7 +13,13 @@
                 <div class="panel-body">
                     <%--start search form--%>
                     <div class="form-inline">
-                        <div class="form-group col-md-4 col-md-offset-8 ">
+                        <div class="form-group col-md-2">
+                            <asp:LinkButton CssClass="btn btn-lg btn-block" ID="btnAdd"
+                                PostBackUrl="~/Admin/AdminCreateRoute.aspx" runat="server">
+                                            <span class="fa fa-plus-square-o"></span> Add Route
+                            </asp:LinkButton>
+                        </div>
+                        <div class="form-group col-md-4 col-md-offset-6 ">
                             <asp:TextBox ID="txtSearch" placeholder="Route ID" onfocus="if(this.value===this.defaultValue)this.value='';"
                                 CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:LinkButton CssClass="btn btn-sm btn-info" ID="LinkButton3"
@@ -28,7 +34,7 @@
 
                         <%--end search from--%>
                     </div>
-                    <hr />
+                    <br /><br /><hr /><br />
                     <%--show routeTBL--%>
                     <div class="col-md-12 table-responsive">
                         <asp:GridView ID="GridView1" CssClass="table table-hover"

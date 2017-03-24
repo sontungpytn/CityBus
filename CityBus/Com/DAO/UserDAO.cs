@@ -33,7 +33,10 @@ namespace CityBus.Com.DAO
             SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
             cmd.Parameters.AddWithValue("@email", u.Email);
             cmd.Parameters.AddWithValue("@password", u.Password);
-            cmd.Parameters.AddWithValue("@name", u.Name);
+            SqlParameter pName = new SqlParameter("@name", u.Name);
+            pName.SqlDbType = SqlDbType.NVarChar;
+            pName.Size = 50;
+            cmd.Parameters.Add(pName);
             cmd.Parameters.AddWithValue("@role", u.Role ? 1 : 0);
             return DAO.ExecuteCommand(cmd);
         }
@@ -66,8 +69,10 @@ namespace CityBus.Com.DAO
                          " WHERE Email = @email";
             SqlCommand cmd = new SqlCommand(sql, DAO.Connection);
             cmd.Parameters.AddWithValue("@password", u.Password);
-            cmd.Parameters.AddWithValue("@name", u.Name);
-            cmd.Parameters.AddWithValue("@role", u.Role);
+            SqlParameter pName = new SqlParameter("@name", u.Name);
+            pName.SqlDbType = SqlDbType.NVarChar;
+            pName.Size = 50;
+            cmd.Parameters.Add(pName);
             cmd.Parameters.AddWithValue("@email", u.Email);
             return DAO.ExecuteCommand(cmd);
         }
@@ -144,7 +149,7 @@ namespace CityBus.Com.DAO
             if (reader.Read())
             {
                 user = new UserInfo();
-                user.Email = reader[0].ToString() ;
+                user.Email = reader[0].ToString();
                 user.Name = reader[2].ToString();
             }
             reader.Close();
